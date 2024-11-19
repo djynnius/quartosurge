@@ -7,7 +7,6 @@ jobs:
       - name: Setup Quarto
         uses: quarto-dev/quarto-actions/setup@v2
       - name: test version
-        needs: Setup Quarto
         run: |
           quarto --version
       - name: Setup R 
