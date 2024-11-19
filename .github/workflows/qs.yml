@@ -7,17 +7,18 @@ jobs:
       - name: Setup Quarto
         uses: quarto-dev/quarto-actions/setup@v2
       - name: test version
+        needs: Setup Quarto
         run: |
           quarto --version
       - name: Setup R 
         run: |
-          apt install r-base -y 
+          sudo apt install r-base -y 
           R -e "install.packages('tidyverse')"
           R -e "install.packages('gtsummary')"
           R --version
       - name: Setup Surge 
         run: |
-          npm install -g surge 
+          sudo npm install -g surge 
           surge --version
 
 
