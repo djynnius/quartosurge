@@ -17,8 +17,12 @@ jobs:
         run: |
           R --version
       - name: Install packages 
-        run: | 
-          R -e "library(tidyverse)" 
+        uses: r-lib/actions/setup-r-dependencies@v2 
+        with:
+          packages: |
+            any::tidyverse
+            any::gtsummary
+            any::NHANES
       - name: Setup Surge 
         run: |
           sudo npm install -g surge 
