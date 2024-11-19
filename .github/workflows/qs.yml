@@ -10,10 +10,11 @@ jobs:
         run: |
           quarto --version
       - name: Setup R 
+        uses: r-lib/actions/setup-r@v2
+        with:
+          r-version: '4.2.0' # Or your desired version
+      - name: test version
         run: |
-          sudo apt install r-base -y 
-          R -e "install.packages('tidyverse')"
-          R -e "install.packages('gtsummary')"
           R --version
       - name: Setup Surge 
         run: |
