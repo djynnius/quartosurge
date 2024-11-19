@@ -16,6 +16,10 @@ jobs:
       - name: test version
         run: |
           R --version
+      - name: Install packages 
+        run: | 
+          R -e "install.packages('tidyverse', repos='https://cloud.r-project.org)" 
+          R -e "install.packages('NHANES', repos='https://cloud.r-project.org)"
       - name: Setup Surge 
         run: |
           sudo npm install -g surge 
