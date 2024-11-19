@@ -1,0 +1,42 @@
+---
+title: Dashboard 
+author: Sunday Ikpe
+format:
+    dashboard:
+        theme: cosmo 
+---
+
+```{r}
+require(tidyverse)
+require(gtsummary)
+require(NHANES)
+
+data(NHANESraw)
+
+nhanes <- NHANESraw 
+rm(NHANESraw)
+
+```
+
+# Dashboard 
+
+## Row  
+
+### Column 
+```{r}
+
+nhanes |> 
+    ggplot() + 
+        aes(Age) + 
+        geom_histogram(bins=30, color='white')
+```
+
+
+### Column 
+```{r}
+nhanes |> 
+    ggplot() + 
+        aes(Age, Gender, fill=Gender) + 
+        geom_boxplot()
+
+```

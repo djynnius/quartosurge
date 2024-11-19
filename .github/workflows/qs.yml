@@ -1,0 +1,22 @@
+name: Deployment 
+on: workflow_dispatch 
+jobs:
+  setup: 
+    runs-on: ubuntu-latest 
+    steps: 
+      - name: Setup Quarto
+      - uses: quarto-dev/quarto-actions/setup@v2
+      - run: |
+          quarto --version
+      - name: Setup R 
+      - run: |
+          apt install r-base -y 
+          R -e "install.packages('tidyverse')"
+          R -e "install.packages('gtsummary')"
+          R --version
+      - name: Setup Surge 
+      - run: |
+          npm install -g surge 
+          surge --version
+
+
